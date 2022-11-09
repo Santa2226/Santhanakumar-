@@ -1,0 +1,24 @@
+import time
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+
+class test:
+    driver = webdriver.Chrome()
+
+    def use_id(self, url, link_id):
+        try:
+            self.driver.get(url)
+            link_id = self.driver.find_element(by=By.ID, value=link_id)
+            if link_id:
+                link_id.click()
+        except:
+            print("ERROR : ID not found !")
+
+
+url = "https://www.w3schools.com/"
+
+id_1 = "w3loginbtn"
+
+test().use_id(url, id_1)
